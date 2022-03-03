@@ -1,0 +1,29 @@
+<main class="main">
+
+    <div class="allJobs">
+        <h2 class="category">All Job Details</h2>
+    
+    <mat-divider></mat-divider>
+
+    <br />
+    <div *ngIf="(jobs$ | async) as jobs">
+        <div class="mat-card-content" *ngFor="let job of jobs">
+            <mat-card class="gradient dark-blue">
+                <mat-card-header>
+                    <div mat-card-avatar>
+                        <fa-icon [icon]="jobIcon" size="3x"></fa-icon>  
+                    </div>
+                
+                <mat-card-title>{{job.title}}</mat-card-title>
+                <div class="icon-flex-container">
+                    <fa-icon [icon]="deleteIcon" size="sm" (click)="openDialog(job.id)"></fa-icon>
+                  </div>
+                <mat-card-subtitle><strong>Position :</strong> {{job.position}}</mat-card-subtitle>
+                <mat-card-subtitle><strong>Salary :</strong>  {{job.salary}}</mat-card-subtitle>
+            </mat-card-header>
+            </mat-card>
+
+        </div>
+    </div>
+</div>
+</main>

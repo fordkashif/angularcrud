@@ -1,0 +1,50 @@
+.landing{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.btn{
+    background-color: #B9F1DA;
+    color:#012C50;
+   
+}
+.all-padding{
+    padding:1%
+
+}
+.category{
+
+    padding-top: 3%;
+    color:#194970;
+
+}
+.dark-blue{
+    color:#194970;
+}
+.mat-card{
+    display: block;
+    max-width: 70%;
+    min-width: 20%;
+   
+}
+.gradient{
+  background-image: linear-gradient(to top, #f3f3f9, #f6f6fa, #f9f9fc, #fcfcfd, #ffffff);
+
+}
+.mat-divider-padding{
+  padding-right: 20%;
+}
+
+.expandable-content {
+    overflow: hidden;
+  }
+mat-card-content{
+    font-style: italic;
+}
+.icon-flex-container {
+    display: flex;
+    width: 80%;
+    justify-content: flex-end;
+  }
+
+

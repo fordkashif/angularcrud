@@ -1,0 +1,35 @@
+mat-toolbar {
+  background-color: #012c50;
+  color: #b9f1da;
+}
+mat-sidenav {
+  background-color: whitesmoke;
+  height: 100vh;
+
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+mat-list-item {
+  color: #012c50;
+}
+.btn {
+  background-color: #b9f1da;
+  color: #012c50;
+}
+.toolbar-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 998;
+}
+.fill-nav {
+  height: 100vh;
+
+}
+.no-doubles{
+  overflow: hidden;
+
+}

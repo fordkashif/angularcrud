@@ -1,0 +1,46 @@
+<main class="main">
+  <div class="landing">
+    <h2 class="category">All Employees
+    </h2>
+    
+      <mat-divider ></mat-divider>
+    
+    <br />
+    <div *ngIf="(employees$ | async) as employees "> 
+    <div  *ngFor="let employee of employees" >
+
+      <mat-card class="gradient dark-blue mat-card">
+        <mat-card-header >
+          <div mat-card-avatar>
+            <fa-icon [icon]="userIcon" size="3x"></fa-icon>
+          </div>
+          <mat-card-title>{{employee.firstName| titlecase}}  {{ employee.lastName | titlecase}} 
+            </mat-card-title>
+          <mat-card-subtitle *ngIf="checkExistence(employee); then jobExists else noJobTitle">  </mat-card-subtitle>
+          <div class="icon-flex-container">
+            <fa-icon [icon]="deleteIcon" size="sm" (click)="openDeleteDialog(employee.id)"></fa-icon>
+          </div>
+
+          <ng-template #noJobTitle>
+            <mat-card-subtitle  matTooltip="Please assign a Job title">Not Assigned</mat-card-subtitle>
+            <mat-card-content >
+            </mat-card-content>
+          </ng-template>
+
+          <ng-template #jobExists >
+            <mat-card-subtitle><jobHolder [passedjob]="employee.job" ></jobHolder> </mat-card-subtitle>
+           
+          </ng-template>
+        </mat-card-header>
+        <mat-card-actions >
+          <button  mat-button onclick="this.blur()" (click)="openEditEmployeeDialog(1)">Edit Details</button>
+        </mat-card-actions>
+      </mat-card>
+      <br />
+    </div>
+  </div>
+  <ng-template #noEmployeesExist>
+    <h2> There are no employees </h2>
+  </ng-template>
+  </div>
+</main>

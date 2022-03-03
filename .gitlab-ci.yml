@@ -1,0 +1,61 @@
+variables:
+   GIT_STRATEGY: clone
+
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+  - node_modules/
+  
+
+stages:
+  - updates
+  - build
+  - test
+  - upload
+  - deploy
+  - security
+  - post-deploy
+
+build project:  
+  stage: build 
+  script:
+    - npm install
+    - npm run-script build
+  tags:
+    - tscript
+  
+
+.update-by-commit:
+  stage: updates
+  script:
+    - echo echo Searching commit message for commands
+    - python -m artify -c extract
+    - echo updated version
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+  tags:
+    - tscript
+
+update-by-commit:
+  stage: updates
+  script:
+    - echo echo Searching commit message for commands
+    - python -m artify -c extract
+    - echo updated version
+  tags:
+    - tscript
+    
+sonar-test:
+  stage: test
+  script:
+    - echo Running SonarQube scan
+    - npm run-script sonar
+  only:
+    - develop
+    - staging
+    - master
+  tags:
+    - ng
+
+

@@ -1,0 +1,33 @@
+.login-form-flex {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+
+  .category{
+
+    padding-top: 3%;
+    color:#194970;
+
+}
+.button-flex-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.scheme-btn {
+  background-color: #2c4558;
+  color: #B9F1DA;
+}
+.scheme-mat-card{
+    background-color: whitesmoke;
+    padding: 2%;
+}
+.scheme-mat-card-title{
+   color: #2c4558;
+}
+.scheme-mat-form-field{
+    max-width: 100%;
+    min-width: 25%;
+ }

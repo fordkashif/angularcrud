@@ -1,0 +1,38 @@
+
+<mat-toolbar  >
+    <mat-toolbar-row>
+      <button mat-icon-button onclick="this.blur()">
+        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+      </button>
+      <h1>Employee Management System {{version}}</h1>
+      <span class="menu-spacer"></span>
+
+    </mat-toolbar-row>
+
+  </mat-toolbar>
+
+  <div >
+  <mat-sidenav-container  autosize="true" flex  class="fill-nav  " >
+    <mat-sidenav #sidenav mode="side"  opened fullscreen >
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="'/Landing'">
+        <mat-icon mat-list-icon > supervisor_account</mat-icon>
+      <span mat-line> Employees</span> </a>
+        <a mat-list-item [routerLink]="'/CreateEmployee'">
+           <mat-icon mat-list-icon > person_add</mat-icon>
+          <span mat-line> Create Employee  </span> </a>
+        <a mat-list-item [routerLink]="'/Jobs'">
+           <mat-icon mat-list-icon > developer_board</mat-icon>
+           <span mat-line> Jobs </span> </a>
+        <a mat-list-item [routerLink]="'CreateJob'">
+          <mat-icon mat-list-icon > post_add</mat-icon>
+          <span mat-line> Create Job </span> </a>
+        <!-- <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a> -->
+
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="scrollbar-hidden">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
